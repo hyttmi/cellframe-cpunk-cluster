@@ -18,7 +18,7 @@ def setup_cluster():
         net = BACKBONE_NET
         cluster = CFGDBCluster("CPUNK",
                                  CFGUUID.compose(net.id.long, MY_CLUSTER_ID),
-                                 "cpunk.gdb.group.mask.*",
+                                 "cpunk.*",
                                   24,
                                   True,
                                   CFGDBCluster.MemberRole.NOBODY,
