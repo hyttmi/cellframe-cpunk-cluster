@@ -2,7 +2,7 @@ from pycfhelpers.node.net import CFNodeAddress
 from pycfhelpers.node import CFNet
 from pycfhelpers.node.crypto import CFGUUID
 from pycfhelpers.node.logging import CFLog
-from pycfhelpers.node.gdb import CFGDBCluser
+from pycfhelpers.node.gdb import CFGDBCluster
 import threading
 
 log = CFLog()
