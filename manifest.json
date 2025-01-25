@@ -1,0 +1,8 @@
+{
+    "name": "cpunk-cluster",
+    "version": "0.01",
+    "author": "Mika Hyttinen (@CELLgainz)",
+    "dependencies": [],
+    "description": "CPUNK cluster plugin",
+    "type": "python"
+}
