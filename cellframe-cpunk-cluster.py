@@ -12,20 +12,23 @@ ROOT_NODES = [CFNodeAddress("D966::0711::935E::EE5E"),
               CFNodeAddress("D8DB::FF73::9F46::9DC4")]
 
 def setup_cluster():
-    log.notice(f"Starting cluster setup ({MY_CLUSTER_ID})...")
-    net = BACKBONE_NET
-    cluster = CFGDBCluster("CPUNK",
-                             CFGUUID.compose(net.id.long, MY_CLUSTER_ID),
-                             "cpunk.gdb.group.mask.*",
-                              24,
-                              True,
-                              CFGDBCluster.MemberRole.NOBODY,
-                              CFGDBCluster.ClusterRole.SYSTEM)
+    try:
+        log.notice(f"Starting cluster setup ({MY_CLUSTER_ID})...")
+        net = BACKBONE_NET
+        cluster = CFGDBCluster("CPUNK",
+                                 CFGUUID.compose(net.id.long, MY_CLUSTER_ID),
+                                 "cpunk.gdb.group.mask.*",
+                                  24,
+                                  True,
+                                  CFGDBCluster.MemberRole.NOBODY,
+                                  CFGDBCluster.ClusterRole.SYSTEM)
 
-    cluster.add_net_associate(net)
-    for member in ROOT_NODES:
-        log.notice(f"Adding {member} as root node to the cluster...")
-        cluster.member_add(member, CFGDBCluster.MemberRole.ROOT) # Loop through the list and add the root nodes
+        cluster.add_net_associate(net)
+        for member in ROOT_NODES:
+            log.notice(f"Adding {member} as root node to the cluster...")
+            cluster.member_add(member, CFGDBCluster.MemberRole.ROOT) # Loop through the list and add the root nodes
+    except Exception as e:
+        log.error(f"Failed to setup cluster: {e}")
 
 def init():
     t = threading.Thread(target=setup_cluster)
