@@ -13,6 +13,7 @@ ROOT_NODES = [CFNodeAddress("D966::0711::935E::EE5E"),
               CFNodeAddress("6E37::B77C::FBEC::E39C")]
 
 def setup_cluster():
+    log.notice(f"Starting cluster setup ({MY_CLUSTER_ID})...")
     net = BACKBONE_NET
     cluster = CFGDBCluster("CPUNK",
                              CFGUUID.compose(net.id.long, MY_CLUSTER_ID),
@@ -20,7 +21,7 @@ def setup_cluster():
                               24,
                               True,
                               CFGDBCluster.MemberRole.NOBODY,
-                              CFGDBCluster.ClusterRole.AUTONOMIC)
+                              CFGDBCluster.ClusterRole.SYSTEM)
 
     cluster.add_net_associate(net)
     for member in ROOT_NODES:
