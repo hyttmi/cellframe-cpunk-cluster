@@ -22,7 +22,7 @@ def setup_cluster():
                                   24,
                                   True,
                                   CFGDBCluster.MemberRole.NOBODY,
-                                  CFGDBCluster.ClusterRole.SYSTEM)
+                                  CFGDBCluster.ClusterRole.AUTONOMIC)
 
         cluster.add_net_associate(net)
         for member in ROOT_NODES:
