@@ -8,10 +8,11 @@ import threading
 log = CFLog()
 
 BACKBONE_NET = CFNet("Backbone")
-MY_CLUSTER_ID = 0x6370756E6B
+MY_CLUSTER_ID = 0xAA
 ROOT_NODES = [CFNodeAddress("D966::0711::935E::EE5E"),
               CFNodeAddress("D8DB::FF73::9F46::9DC4"),
-              CFNodeAddress("6E37::B77C::FBEC::E39C")]
+              CFNodeAddress("6E37::B77C::FBEC::E39C"),
+              CFNodeAddress("0B54::54EC::E013::DB1D")]
 
 def setup_cluster():
     try:
