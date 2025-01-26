@@ -20,7 +20,7 @@ def setup_cluster():
         net = BACKBONE_NET
         UUID = CFGUUID.compose(net.id.long, MY_CLUSTER_ID)
         log.notice(f"Got UUID {UUID}")
-        cluster = CFGDBCluster("CPUNK",
+        cluster = CFGDBCluster("cpunk",
                                UUID,
                                "cpunk.*",
                                24,
