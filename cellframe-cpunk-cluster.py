@@ -8,7 +8,7 @@ import threading
 log = CFLog()
 
 BACKBONE_NET = CFNet("Backbone")
-MY_CLUSTER_ID = 0xAA
+MY_CLUSTER_ID = 0xFA
 ROOT_NODES = [CFNodeAddress("D966::0711::935E::EE5E"),
               CFNodeAddress("D8DB::FF73::9F46::9DC4"),
               CFNodeAddress("6E37::B77C::FBEC::E39C"),
@@ -23,7 +23,7 @@ def setup_cluster():
         cluster = CFGDBCluster("cpunk",
                                UUID,
                                "cpunk.*",
-                               24,
+                               3,
                                True,
                                CFGDBCluster.MemberRole.NOBODY,
                                CFGDBCluster.ClusterRole.AUTONOMIC)
