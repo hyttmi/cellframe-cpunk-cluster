@@ -18,14 +18,15 @@ def setup_cluster():
     try:
         log.notice(f"Starting cluster setup ({MY_CLUSTER_ID})...")
         net = BACKBONE_NET
+        UUID = CFGUUID.compose(net.id.long, MY_CLUSTER_ID)
+        log.notice(f"Got UUID {UUID}")
         cluster = CFGDBCluster("CPUNK",
-                                 CFGUUID.compose(net.id.long, MY_CLUSTER_ID),
-                                 "cpunk.*",
-                                  24,
-                                  True,
-                                  CFGDBCluster.MemberRole.NOBODY,
-                                  CFGDBCluster.ClusterRole.AUTONOMIC)
-
+                               UUID,
+                               "cpunk.*",
+                               24,
+                               True,
+                               CFGDBCluster.MemberRole.NOBODY,
+                               CFGDBCluster.ClusterRole.AUTONOMIC)
         cluster.add_net_associate(net)
         for member in ROOT_NODES:
             log.notice(f"Adding {member} as root node to the cluster...")
