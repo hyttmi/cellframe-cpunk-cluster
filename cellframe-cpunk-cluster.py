@@ -10,7 +10,8 @@ log = CFLog()
 BACKBONE_NET = CFNet("Backbone")
 MY_CLUSTER_ID = 0x4350554E4B
 ROOT_NODES = [CFNodeAddress("6E37::B77C::FBEC::E39C"),
-              CFNodeAddress("0B54::54EC::E013::DB1D")]
+              CFNodeAddress("E9A3::0E1F::5235::A4BE"),
+              CFNodeAddress("FC29::43BB::BA6F::0913")]
 
 def setup_cluster():
     try:
